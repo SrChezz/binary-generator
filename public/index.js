@@ -1,6 +1,7 @@
 var TABLE = document.getElementById('table');
 var BTN = document.getElementById('export-btn');
 var EXPORT = document.getElementById('export');
+let DOWNLOAD = document.getElementById('download');
 
 document.querySelector('.table-add').addEventListener('click', function () {
   var clone = TABLE.querySelector('tr.hide').cloneNode(true);
@@ -75,13 +76,23 @@ BTN.addEventListener('click', function () {
     neumonico = databit[0].value;
     operando = databit[1].value;
 
-    data.push(neumonico);
-    data.push(operando);
+    data.push(`${neumonico}${operando}`);
   });
 
   EXPORT.textContent = JSON.stringify(data.join(" "));
+  DOWNLOAD.href = '/download?name=' + name;
 
-  let cleanData = { data: data.join("") };
+
+  var pData = '';
+
+
+  data.map(function (bin) {
+    pData += String.fromCharCode(parseInt(bin, 2));
+  });
+
+
+  let cleanData = { data: pData };
+  console.log(pData)
 
 
   fetch("/download", {
@@ -95,3 +106,22 @@ BTN.addEventListener('click', function () {
     .catch((error) => console.error("Error:", error))
     .then((response) => console.log("Success:", response));
 });
+
+
+// DOWNLOAD.addEventListener('click', function (e) {
+//   e.preventDefault(); // Evitar la navegación predeterminada
+//   console.log('click');
+
+//   let name = document.getElementById('name').value || 'file.bin'; // Obtener el nombre del archivo o establecer un valor predeterminado
+
+//   DOWNLOAD.href = '/download?name=' + name;
+
+//   // Crear un enlace temporal para descargar el archivo
+//   var link = document.createElement('a');
+//   link.href = '/download?name=' + name;
+//   //link.download = name;
+
+//   // Simular el clic en el enlace para iniciar la descarga
+//   DOWNLOAD.click();
+// });
+

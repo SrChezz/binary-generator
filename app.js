@@ -30,21 +30,22 @@ app.post('/download', (req, res) => {
 
 app.get('/download', (req, res) => {
     try {
-
+        let name = `${req.query.name}.bin` || 'file.bin'; // Obtén el nombre desde los parámetros de consulta
+        console.log(name);
         const filePath = path.join(__dirname, 'downloads', 'file.bin');
 
-        res.download(filePath, 'file.bin', (err) => {
+        res.download(filePath, name, (err) => {
             if (err) {
                 console.error('Error sending file:', err);
                 res.status(500).json({ error: 'Error sending file' });
-
             }
-        })
+        });
     } catch (error) {
         console.error("Error:", error);
         res.status(500).send("Error en el servidor");
     }
-})
+});
+
 
 app.post("/test", async (req, res) => {
     try {
