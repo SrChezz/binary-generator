@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Young+Serif&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <meta charset="UTF-8">
+
+
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
+  <title>Generador BIN</title>
+</head>
+
+<body>
+
+  <main>
+
+
+    <div class="container">
+      <h1 class="main-title">Generador de arcchivos .bin</h1>
+      <p>Genera tu archivo BIN de forma visual y sencilla</p>
+
+      <label for="name">Nombre de su archivo: </label>
+      <input id="name" type="text" value="file">
+
+      <div id="table" class="table-editable">
+        <span class="table-add glyphicon glyphicon-plus"></span>
+
+        <table class="table">
+          <tr>
+            <th>Numero</th>
+            <th>Neumonico</th>
+            <th>Operando</th>
+            <th></th>
+            <th></th>
+          </tr>
+
+
+          <tr>
+            <td>1</td>
+            <td>
+              <select name="neumonico">
+                <option value="0000" selected>NOT</option>
+                <option value="0001" selected>NAND</option>
+                <option value="0010">ADD</option>
+                <option value="0011">LDA</option>
+                <option value="0100">OUT A</option>
+                <option value="0101">OUT B</option>
+                <option value="0110">IN A</option>
+                <option value="0111">RD</option>
+                <option value="1000">RA</option>
+                <option value="1001">LDRA</option>
+                <option value="1100">JPI</option>
+                <option value="1101">JPC</option>
+                <option value="1110">JPZ</option>
+              </select>
+            </td>
+            <td>
+              <select name="operando">
+                <option value="0000" selected>0</option>
+                <option value="0001">1</option>
+                <option value="0010">2</option>
+                <option value="0011">3</option>
+                <option value="0100">4</option>
+                <option value="0101">5</option>
+                <option value="0110">6</option>
+                <option value="0111">7</option>
+                <option value="1000">8</option>
+                <option value="1001">9</option>
+                <option value="1010">10</option>
+                <option value="1011">11</option>
+                <option value="1100">12</option>
+                <option value="1101">12</option>
+                <option value="1110">14</option>
+                <option value="1111">15</option>
+              </select>
+            </td>
+
+            <td>
+              <span class="table-remove glyphicon glyphicon-remove"></span>
+            </td>
+
+            <td>
+              <span class="table-up glyphicon glyphicon-arrow-up"></span>
+              <span class="table-down glyphicon glyphicon-arrow-down"></span>
+            </td>
+          </tr>
+
+          <!-- This is our clonable table line -->
+          <tr class="hide">
+            <td>1</td>
+
+            <td>
+              <select name="neumonico">
+                <option value="0000" selected>NOT</option>
+                <option value="0001" selected>NAND</option>
+                <option value="0010">ADD</option>
+                <option value="0011">LDA</option>
+                <option value="0100">OUT A</option>
+                <option value="0101">OUT B</option>
+                <option value="0110">IN A</option>
+                <option value="0111">RD</option>
+                <option value="1000">RA</option>
+                <option value="1001">LDRA</option>
+                <option value="1100">JPI</option>
+                <option value="1101">JPC</option>
+                <option value="1110">JPZ</option>
+              </select>
+            </td>
+
+            <td>
+              <select name="operando">
+                <option value="0000" selected>0</option>
+                <option value="0001">1</option>
+                <option value="0010">2</option>
+                <option value="0011">3</option>
+                <option value="0100">4</option>
+                <option value="0101">5</option>
+                <option value="0110">6</option>
+                <option value="0111">7</option>
+                <option value="1000">8</option>
+                <option value="1001">9</option>
+                <option value="1010">10</option>
+                <option value="1011">11</option>
+                <option value="1100">12</option>
+                <option value="1101">12</option>
+                <option value="1110">14</option>
+                <option value="1111">15</option>
+              </select>
+            </td>
+
+            <td>
+              <span class="table-remove glyphicon glyphicon-remove"></span>
+            </td>
+
+            <td>
+              <span class="table-up glyphicon glyphicon-arrow-up"></span>
+              <span class="table-down glyphicon glyphicon-arrow-down"></span>
+            </td>
+          </tr>
+
+        </table>
+      </div>
+
+      <button id="export-btn" class="btn btn-primary">Generar</button>
+      <a id="download" class="btn btn-primary" href="/download">Descargar </a>
+      <p id="export"></p>
+    </div>
+
+    <script src="index.js"></script>
+  </main>
+</body>
+
+</html>
