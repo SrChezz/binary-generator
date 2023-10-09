@@ -79,16 +79,6 @@ BTN.addEventListener('click', function () {
         data.push(`${neumonico}${operando}`);
     });
 
-    data = [
-        "00110100",
-        "01110000",
-        "00110000",
-        "01000000",
-        "00100001",
-        "01000000",
-        "11000000",
-    ];
-
     // Convierte los números binarios a caracteres ASCII
     let pData = '';
     data.forEach(function (bin) {
