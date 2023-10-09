@@ -90,7 +90,7 @@ BTN.addEventListener('click', function () {
     console.log(pData);
 
     // Muestra los resultados en el elemento EXPORT
-    EXPORT.textContent = JSON.stringify(data.join(" ") + '\n' + pData);
+    EXPORT.textContent = JSON.stringify(data.join(" "));
 
     const link = document.createElement("a");
     const byteArray = new Uint8Array(pData.length);
